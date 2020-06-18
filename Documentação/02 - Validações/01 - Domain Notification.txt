@@ -1,0 +1,8 @@
+Instalado o Pacote Flunt (do Balta)
+
+isntall package flunt 
+
+para implementar aas validações do Flunt, basta que a entidade herde de Notifiable
+
+basta implementar na entidade base do projeto
+

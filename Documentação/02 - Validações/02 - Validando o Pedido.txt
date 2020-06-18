@@ -1,0 +1,7 @@
+			AddNotifications(new Contract()
+					.Requires()
+					.IsNotNull(customer, "Customer", "Cliente inválido"));
+					
+Notificação de Pedido, a notificação "Requer" que o pedido não seja nulo, caso for, apresentará a mensagem
+
+

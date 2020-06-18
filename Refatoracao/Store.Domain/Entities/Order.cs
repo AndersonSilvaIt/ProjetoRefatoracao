@@ -1,4 +1,5 @@
-﻿using Store.Domain.Enums;
+﻿using Flunt.Validations;
+using Store.Domain.Enums;
 using System;
 using System.Collections.Generic;
 
@@ -7,6 +8,11 @@ namespace Store.Domain.Entities {
 	public class Order : Entity {
 
 		public Order(Customer customer, decimal deliveryFee, Discount discount) {
+
+			AddNotifications(new Contract()
+					.Requires()
+					.IsNotNull(customer, "Customer", "Cliente inválido")
+			);
 
 			Customer = customer;
 			Date = DateTime.Now;
@@ -28,7 +34,12 @@ namespace Store.Domain.Entities {
 		public void AddItem(Product product, int quantity) 
 		{
 			var item = new OrdemItem(product, quantity);
-			Items.Add(item);
+
+			// passa as notificações do filho para o pai
+			//AddNotifications(item.Notifications); // isso é para evitar o IF debaixo
+
+			if(item.Valid) // item.Notifications aqui pega todas as notificações que ocorreu
+				Items.Add(item);
 		}
 
 		public decimal Total() {
