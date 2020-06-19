@@ -8,6 +8,5 @@ namespace Store.Domain {
 		public static void Main() {
 			
 		}
-
 	}
 }

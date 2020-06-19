@@ -23,6 +23,7 @@ namespace Store.Domain.Entities {
 
 			if(IsValid())
 				return Amount;
+
 			return 0;
 		}
 
